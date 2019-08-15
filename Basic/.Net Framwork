@@ -1,0 +1,48 @@
+
+==================
+
+# PowerShell 5
+ Get-ChildItem 'HKLM:\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full\' |  Get-ItemPropertyValue -Name Release | Foreach-Object { $_ -ge 394802 }
+
+ # PowerShell 4
+(Get-ItemProperty "HKLM:SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full").Release -ge 394802
+
+================== Find .NET Framework versions 1–4 in the registry================================
+From the Start menu, choose Run, enter regedit, and then select OK.
+
+You must have administrative credentials to run regedit.
+
+In the Registry Editor, open the following subkey: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP:
+
+For .NET Framework versions 1.1 through 3.5, each installed version is listed as a subkey under the HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP subkey. For example, HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v3.5. The version number is stored as a value in the version subkey's Version entry.
+
+For .NET Framework 4, the Version entry is under the HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4.0\Client subkey, the HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4.0\Full subkey, or under both subkeys.
+
+================= To check a .Net Version ===================================================
+1.Open My computer -> Address bor
+2.\%windir%\Microsoft.NET\FrameWork
+3.C:\Windows\Microsoft.NET\Framework\v4.0.30319>.\MSBuild.exe -version
+    4.6.79.0
+dir %WINDIR%\Microsoft.Net\Framework\v* /O:-N /B
+================= Version List =================================================
+.NET Framework version	Value of the Release DWORD
+.NET Framework 4.5	All Windows operating systems: 378389
+.NET Framework 4.5.1	On Windows 8.1 and Windows Server 2012 R2: 378675
+On all other Windows operating systems: 378758
+.NET Framework 4.5.2	All Windows operating systems: 379893
+.NET Framework 4.6	On Windows 10: 393295
+On all other Windows operating systems: 393297
+.NET Framework 4.6.1	On Windows 10 November Update systems: 394254
+On all other Windows operating systems (including Windows 10): 394271
+.NET Framework 4.6.2	On Windows 10 Anniversary Update and Windows Server 2016: 394802
+On all other Windows operating systems (including other Windows 10 operating systems): 394806
+.NET Framework 4.7	On Windows 10 Creators Update: 460798
+On all other Windows operating systems (including other Windows 10 operating systems): 460805
+.NET Framework 4.7.1	On Windows 10 Fall Creators Update and Windows Server, version 1709: 461308
+On all other Windows operating systems (including other Windows 10 operating systems): 461310
+.NET Framework 4.7.2	On Windows 10 April 2018 Update and Windows Server, version 1803: 461808
+On all Windows operating systems other than Windows 10 April 2018 Update and Windows Server, version 1803: 461814
+.NET Framework 4.8	On Windows 10 May 2019 Update: 528040
+On all others Windows operating systems (including other Windows 10 operating systems): 528049
+
+===============================================================================================
